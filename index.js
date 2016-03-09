@@ -4,6 +4,7 @@ var path = require("path");
 var bodyParser = require("body-parser");
 var ejsLayout = require("express-ejs-layouts");
 var api = require("./controllers/api");
+var yelp = require("./controllers/yelp");
 var mongoose = require('mongoose');
 
 app.use(bodyParser.urlencoded({extended:false}));
@@ -21,6 +22,7 @@ mongoose.connect("mongodb://localhost/travel", function(err){
 
 
 app.use("/api", api);
+app.use("/yelp", yelp);
 
 
 app.get("/", function(req, res){

@@ -25,9 +25,5 @@ router.get("/route", function(req, res) {
 	res.render("route");
 });
 
-// Create all API endpoints
-// 1. user
-// 2. preference
-// 3. Andrew will pass longitude and latitude to here and I will create route on google map
 
 module.exports = router;

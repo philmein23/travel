@@ -33,7 +33,7 @@
   });
 
 
-
+  module.yelp = yelp;
 
 
 
