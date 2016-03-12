@@ -1,7 +1,17 @@
 angular.module("allInfoNearbyCtrls", [])
-.controller('homeCtrl', ['$scope', 'currentAuth','travel', 'Authkey', '$http', function($scope, travel, Authkey, $http){
+.controller('homeCtrl', ['$scope','travel', 'Authkey', '$http', function($scope, travel, Authkey, $http){
+  $scope.businesses = [];
+  $scope.query = "";
+  $scope.search = function(){
+
+    travel.yelp.query({q: $scope.query}, function(list){
+      console.log(list.businesses);
+      $scope.businesses = list.businesses;
+    });
+   }
+
 }])
-.controller('registerCtrl', ['$scope', 'currentAuth','travel', 'Authkey', '$http', function($scope, travel, Authkey, $http){
+.controller('registerCtrl', ['$scope','travel', 'Authkey', '$http', function($scope, travel, Authkey, $http){
 
 
     $scope.createUser = function() {

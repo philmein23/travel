@@ -1,10 +1,13 @@
 var express = require("express");
 var router  = express.Router();
+var User = require("../models/user");
 
 
 router.get("/", function(req, res){
 	res.send("hi Api");
 });
+
+
 
 // GET route to display info of a user
 router.get("/profile", function(req, res) {

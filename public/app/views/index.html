@@ -1,1 +1,12 @@
+<div ng-controller="homeCtrl">
 <h1>Traveling</h1>
+<input type="text" ng-model="query">
+<button ng-click="search()">Search</button>
+<div ng-repeat="business in businesses" >
+<div class="well" >
+	<h1>{{business.name}}</h1>
+	<img ng-src="{{business.image_url}}">
+</div>
+</div>
+
+</div>

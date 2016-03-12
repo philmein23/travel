@@ -14,15 +14,16 @@ var UserSchema = new mongoose.Schema({
     email:{  	type: String,
     			required: true
     	  },
-   	location: {	type: String 
+   	location: {	type: String,
    				required: true
-   			},
-   	preferences: {[type: String]
-   			},
-   	favorites: {[type: String]
-   			},
-   	pastRoutes: {[type: String]
-   		}
+   			}
+        // ,
+   	// preferences: { [type: String]
+   	// 		},
+   	// favorites: {[type: String]
+   	// 		},
+   	// pastRoutes: {[type: String]
+   		// }
 });
 
 UserSchema.set('toJSON', {
