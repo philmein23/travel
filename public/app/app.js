@@ -5,7 +5,7 @@ $rootScope.$on("$routeChangeError", function(event, next, previous, error) {
   // We can catch the error thrown when the $requireAuth promise is rejected
   // and redirect the user back to the home page
   if (error === "AUTH_REQUIRED") {
-    $location.path("/home");
+    $location.path("/");
   }
 });
 }]);
@@ -14,12 +14,12 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
   $routeProvider
   .when('/', {
     templateUrl: 'app/views/index.html',
-    controller: 'homeCtrl',
-    resolve: {
-       "currentAuth": ["travel", function(travel) {
-        return travel.auth.$waitForAuth();
-    }]
-  }
+    controller: 'homeCtrl'
+    // resolve: {
+    //    "currentAuth": ["travel", function(travel) {
+    //     return travel.auth.$waitForAuth();
+    // }]
+  // }
   })
   // For later when views require authentication
   // resolve: {

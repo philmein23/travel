@@ -14,13 +14,14 @@ router.get("/", function(req, res) {
     token: process.env.TOKEN,
     token_secret: process.env.TOKEN_SECRET,
   });
-  var q = req.query.q;
-	yelp.search({type: q, location: 'Lynnwood'})
+  var search = req.query.q;
+
+	yelp.search({term: search.term, location: search.location})
 	.then(function (data) {
-		  	
-    console.log(data);
+
+    // console.log(data);
 	res.send(data);
-    console.log(q);
+  console.log(req);
   })
   .catch(function (err) {
     console.error(err);

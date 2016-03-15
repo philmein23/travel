@@ -29,5 +29,9 @@ app.get("/", function(req, res){
 	// var t =  User.findOne({ username: 'ames22' });
   res.sendFile(path.join(__dirname, 'public/index.html'));
 });
+app.get("/:id", function(req, res){
+	// var t =  User.findOne({ username: 'ames22' });
+  res.sendFile(path.join(__dirname, 'public/index.html'));
+});
 
 app.listen(3000);

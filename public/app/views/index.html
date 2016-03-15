@@ -1,7 +1,13 @@
-<div ng-controller="homeCtrl">
-<h1>Traveling</h1>
-<input type="text" ng-model="query">
+<div ng-controller="homeCtrl" ng-init="getLocation()">
+<h1>Traveling</h1>LoggedIn: {{LoggedIn}}
+
+<input type="text" ng-model="query.term">
+<input type="text" ng-model="query.location">
+
+<input type="text" ng-model="query.coodinates" placeholder="{{getGeolocation.latitude}}">
+{{getGeolocation.latitude}}
 <button ng-click="search()">Search</button>
+
 <div ng-repeat="business in businesses" >
 <div class="well" >
 	<h1>{{business.name}}</h1>
