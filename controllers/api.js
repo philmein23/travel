@@ -47,9 +47,7 @@ router.route("/profile/:firebaseId/edit")
 	});
 
 // GET route for route on google map
-router.get("/route", function(req, res) {
-	res.render("route");
-});
+// router.use("/route", require("./waypoints"));
 
 
 module.exports = router;

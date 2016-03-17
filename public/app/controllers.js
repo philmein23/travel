@@ -124,3 +124,6 @@ angular.module("allInfoNearbyCtrls", [])
       });;
     };
 }])
+.controller("waypointsCtrl", [function() {
+  
+}])

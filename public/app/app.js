@@ -48,6 +48,11 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     templateUrl: 'app/views/user/profile.html',
     controller: 'profileCtrl'
   })
+  //Andy's waypoints page
+  .when("/waypoints", {
+    templateUrl: "app/views/waypoints.html",
+    controller: "waypointsCtrl"
+  })
   .otherwise({
     templateUrl: 'app/views/404.html'
   });
