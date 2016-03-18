@@ -2,17 +2,30 @@ angular.module('travelServices', ['ngResource'])
 .factory('travel', ['$resource', "$firebaseAuth", function($resource, $firebaseAuth) {
 	var ref = new Firebase("https://shining-torch-3315.firebaseio.com/");
   return { auth: $firebaseAuth(ref),
-  		   yelp: $resource("/yelp" , {}, {
-  			query: { method: 'GET', isArray: false } 
-  			})
+  		     yelp: $resource("/yelp" , {}, {
+  			         query: { method: 'GET', isArray: false }
+  			   }),
+           initial: $resource("/api/user/create"),
+           authenticate: $resource("/api/user/auth")
   	  };
 }])
 .service('Authkey', function(){
   var authkey = "";
   var username = "";
   var id = "";
+  var user = {};
+  var loc = "";
 
   return {
+  getUserData: function(){
+    return user;
+  },
+  setUserData: function(User){
+    user = User;
+  },
+  clearUserData: function(){
+    user = {};
+  },
   getAuthKey: function(){
         return authkey;
      },
@@ -39,6 +52,15 @@ angular.module('travelServices', ['ngResource'])
 	},
   clearUserId: function(){
 		id = "";
-	}
+	},
+  setUserLocation: function(Loc){
+    loc = Loc;
+  },
+  getUserLocation: function(){
+    return loc;
+  },
+  clearUserLocation: function(){
+    loc = "";
+  }
  }
 });

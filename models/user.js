@@ -5,25 +5,22 @@ var mongoose = require("mongoose");
 
 var UserSchema = new mongoose.Schema({
 	username: { type: String, 
-	 			 required: true, 
-	 			 index: { unique: true } 
-	 			},
-    // password: {  type: String,
-    // 			 required: true
-    // 		  },
-    email:{  	type: String,
-    			required: true
+	 			      required: true
+	 			   },
+  uid: {   type: String,
+    			 required: true,
+           index: { unique: true } 
+
+    		  },
+  email:{  	type: String,
+    			  required: true
     	  },
-   	location: {	type: String,
-   				required: true
-   			}
-        // ,
-   	// preferences: { [type: String]
-   	// 		},
-   	// favorites: {[type: String]
-   	// 		},
-   	// pastRoutes: {[type: String]
-   		// }
+  location: {	type: String,
+   				   required: true
+   			},
+  preferences: [String],
+  favorites: [String],
+  pastRoutes: [String]
 });
 
 UserSchema.set('toJSON', {
