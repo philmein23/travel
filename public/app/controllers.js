@@ -3,6 +3,7 @@ angular.module("allInfoNearbyCtrls", [])
   $scope.businesses = [];
   $scope.savedRoutes = [];
   $scope.query = {};
+
   $scope.LoggedIn = Authkey.getUserId() == "" ? false : true;
   $scope.search = function(){
     $scope.businesses  = [];
@@ -24,7 +25,7 @@ angular.module("allInfoNearbyCtrls", [])
    };
    $scope.saveFavorites = function() {
      $scope.savedRoutes.push($scope.query);
-     console.log(savedRoutes);
+     console.log($scope.savedRoutes);
    };
 }])
 .controller('profileCtrl', ['$scope','travel', 'Authkey','$location', '$http', function($scope, travel, Authkey, $location, $http){
