@@ -16,8 +16,15 @@ router.get("/", function(req, res) {
   });
   var search = JSON.parse(req.query.q);
   var ll = search.latitude + "," + search.longitude;
-
-	yelp.search({term: search.term, location: search.location, cl:ll})
+  var yelpSearh = function(query){
+    if(query.location == "" || query.location == null || query.location == undefined){
+      return { term: search.term, cl:ll }
+    } else if(query.ll == "" || query.ll == null || query.ll == undefined){
+      return{ term: search.term, location: search.location }      
+    }
+   };
+   
+	yelp.search(yelpSearh(search))
 	.then(function (data) {
 
     // console.log(data);
