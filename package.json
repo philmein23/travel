@@ -23,6 +23,7 @@
     "express-ejs-layouts": "^2.0.0",
     "mongoose": "^4.4.6",
     "socket.io": "^1.4.5",
-    "yelp": "^1.0.1"
+    "yelp": "^1.0.1",
+    "async": "1.5.2"
   }
 }
