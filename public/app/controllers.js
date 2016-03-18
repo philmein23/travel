@@ -1,12 +1,12 @@
 angular.module("allInfoNearbyCtrls", [])
 .controller('homeCtrl', ['$scope','travel', 'Authkey', '$http', function($scope, travel, Authkey, $http){
   $scope.businesses = [];
+  $scope.savedRoutes = [];
   $scope.query = {};
-
   $scope.LoggedIn = Authkey.getUserId() == "" ? false : true;
   $scope.search = function(){
     $scope.businesses  = [];
-    travel.yelp.query({q: $scope.query}, function(list){
+    travel.yelp.query({q:[$scope.query]}, function(list){
       console.log(list.businesses);
       $scope.businesses = list.businesses;
     });
@@ -21,6 +21,10 @@ angular.module("allInfoNearbyCtrls", [])
      } else {
        console.log("Geolocation is not supported");
      }
+   };
+   $scope.saveFavorites = function() {
+     $scope.savedRoutes.push($scope.query);
+     console.log(savedRoutes);
    };
 }])
 .controller('profileCtrl', ['$scope','travel', 'Authkey','$location', '$http', function($scope, travel, Authkey, $location, $http){
