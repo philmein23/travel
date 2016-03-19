@@ -15,6 +15,7 @@ router.get("/", function(req, res) {
     token_secret: process.env.TOKEN_SECRET,
   });
 
+  console.log("SEARCH",req)
   var search = JSON.parse(req.query.q);
   var ll = search.latitude + "," + search.longitude;
   yelp.search({term: search.term, location: search.location, cl:ll})
@@ -22,7 +23,7 @@ router.get("/", function(req, res) {
 
     // console.log(data);
     res.send(data);
-    console.log(req);
+    // console.log(req);
   })
   .catch(function (err) {
     console.error(err);
