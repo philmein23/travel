@@ -7,7 +7,7 @@ angular.module("allInfoNearbyCtrls", [])
   $scope.LoggedIn = Authkey.getUserId() == "" ? false : true;
   $scope.search = function(){
     $scope.businesses  = [];
-    travel.yelp.query({q:$scope.savedRoutes}, function(list){
+    travel.yelp.query({q: $scope.savedRoutes}, function(list){
       console.log(list.businesses);
       $scope.businesses = list.businesses;
     });
@@ -24,7 +24,8 @@ angular.module("allInfoNearbyCtrls", [])
      }
    };
    $scope.saveFavorites = function() {
-     $scope.savedRoutes.push($scope.query);
+
+     $scope.savedRoutes.push($.extend(true, {}, $scope.query));
      console.log($scope.savedRoutes);
    };
 }])
