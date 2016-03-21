@@ -15,33 +15,28 @@ router.get("/", function(req, res) {
     token_secret: process.env.TOKEN_SECRET,
   });
 
-  console.log("SEARCH", req);
   var search = req.query.q;
   var asyncArray = [];
+  var results = [];
   var parsedSearch = search.map(function(ele) {
     return JSON.parse(ele);
   });
-
-  parsedSearch.forEach(function(item) {
-    asyncArray.push(function() {
-      yelp.search({term: item.term, location: item.location, cl:item.latitude + "," + item.longitude})
+  
+var yelpSearchFn = function(data, callback){
+  yelp.search({term: data.term, location: data.location, cl:data.latitude + "," + data.longitude})
       .then(function (data) {
-
-        console.log(data);
-        res.send(data);
-        //console.log(req);
+        callback(null, data);
       })
       .catch(function (err) {
         console.error(err);
       });
-      // res.send("testing");
-    });
-  });
-  async.parallel(asyncArray, function() {
-    console.log('success');
-  });
+};
 
 
+async.map(parsedSearch, yelpSearchFn, function(err, results){
+  var all = [].concat.apply([], results.map(function(i){return i.businesses}));
+  res.send(all);
+});
 });
 
 module.exports = router;
