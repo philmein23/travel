@@ -1,0 +1,40 @@
+$background-color:rgba(255, 255, 255, 0.9);
+$button-color: #1F77B2;
+
+.flexbox {
+  display: flex;
+}
+
+.container {
+  width: 60%;
+  max-width: 700px;
+  margin: 10% auto 10%;
+
+  .main-section {
+    background-color: $background-color;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 30px;
+
+    .sub-section {
+      width: 70%;
+      margin: 0 auto;
+
+      button {
+        a, a:visited {
+          color: white;
+          text-decoration: none;
+        }
+        text-align: center;
+        text-transform: uppercase;
+        width: 100%;
+        background-color: $button-color;
+        border-radius: 5px;
+        border: 0;
+        margin: 1% 0;
+      }
+    }
+  }
+
+
+}

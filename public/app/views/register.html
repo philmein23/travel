@@ -1,6 +1,6 @@
 
 
-<div ng-app="travelapp" ng-controller="registerCtrl">
+<div ng-app="travelapp" ng-controller="registerCtrl" class="main-section flexbox">
   Email: <input type="text" ng-model="email">
   Password: <input type="text" ng-model="password">
 
@@ -10,8 +10,8 @@
 
   <br><br>
 
-<!--   <button ng-click="removeUser()">Remove User</button>
- -->
-  <p ng-if="message">Message: <strong>{{ message }}</strong></p>
-  <p ng-if="error">Error: <strong>{{ error }}</strong></p>
+  <!--   <button ng-click="removeUser()">Remove User</button>
+-->
+<p ng-if="message">Message: <strong>{{ message }}</strong></p>
+<p ng-if="error">Error: <strong>{{ error }}</strong></p>
 </div>

@@ -1,4 +1,19 @@
-<div ng-controller="profileCtrl">
-<h1>Profile page of {{name}}</h1>
-<h1>You live in {{location}} </h1>
+<div ng-controller="profileCtrl" ng-init="getLocation()" class="main-section flexbox">
+  <h1>Profile page of {{name}}</h1>
+  <form>
+    <label>Category Selection: </label><input type="text" ng-model="query.term"> <br />
+    <label>Location by City/State: </label><input type="text" ng-model="query.location"><br />
+    <label>Filter by Current Location (Latitude)</label>: <input type="text" ng-model="query.latitude"><br />
+    <label>Filter by Current Location (Longitude)</label>: <input type="text" ng-model="query.longitude"><br />
+    <button ng-click="search()">Search</button>
+    <button ng-click="saveFavorites()">Save Route</button>
+  </form>
+  Query{{query}}
+  Saved Routes{{savedRoutes}}
+  <div ng-repeat="business in businesses" >
+    <div class="well" >
+      <h1>{{business.name}}</h1>
+      <img ng-src="{{business.image_url}}">
+    </div>
+  </div>
 </div>

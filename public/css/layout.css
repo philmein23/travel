@@ -1,0 +1,28 @@
+.flexbox {
+  display: flex; }
+
+.container {
+  width: 60%;
+  max-width: 700px;
+  margin: 10% auto 10%; }
+  .container .main-section {
+    background-color: rgba(255, 255, 255, 0.9);
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 30px; }
+    .container .main-section .sub-section {
+      width: 70%;
+      margin: 0 auto; }
+      .container .main-section .sub-section button {
+        text-align: center;
+        text-transform: uppercase;
+        width: 100%;
+        background-color: #1F77B2;
+        border-radius: 5px;
+        border: 0;
+        margin: 1% 0; }
+        .container .main-section .sub-section button a, .container .main-section .sub-section button a:visited {
+          color: white;
+          text-decoration: none; }
+
+/*# sourceMappingURL=layout.css.map */

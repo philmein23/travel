@@ -21,7 +21,7 @@ router.get("/", function(req, res) {
   var parsedSearch = search.map(function(ele) {
     return JSON.parse(ele);
   });
-  
+
 var yelpSearchFn = function(data, callback){
   yelp.search({term: data.term, location: data.location, cl:data.latitude + "," + data.longitude})
       .then(function (data) {
@@ -34,7 +34,9 @@ var yelpSearchFn = function(data, callback){
 
 
 async.map(parsedSearch, yelpSearchFn, function(err, results){
-  var all = [].concat.apply([], results.map(function(i){return i.businesses}));
+  var all = [].concat.apply([], results.map(function(i){
+    return i.businesses;
+  }));
   res.send(all);
 });
 });
