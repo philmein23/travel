@@ -62,5 +62,5 @@ angular.module('travelServices', ['ngResource'])
   clearUserLocation: function(){
     loc = "";
   }
- }
+};
 });

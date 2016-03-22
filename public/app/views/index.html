@@ -1,22 +1,8 @@
-<div ng-controller="homeCtrl" ng-init="getLocation()">
-	<h1>Traveling</h1>LoggedIn: {{LoggedIn}} <br />
-
-	<form>
-		<label>Category Selection: </label><input type="text" ng-model="query.term"> <br />
-		<label>Location by City/State: </label><input type="text" ng-model="query.location"><br />
-		<label>Filter by Current Location (Latitude)</label>: <input type="text" ng-model="query.latitude"><br />
-		<label>Filter by Current Location (Longitude)</label>: <input type="text" ng-model="query.longitude"><br />
-		<button ng-click="search()">Search</button>
-		<button ng-click="saveFavorites()">Save Route</button>
-
-	</form>
-Query{{query}}
-Saved Routes{{savedRoutes}}
-	<div ng-repeat="business in businesses" >
-		<div class="well" >
-			<h1>{{business.name}}</h1>
-			<img ng-src="{{business.image_url}}">
-		</div>
+<div ng-controller="homeCtrl"  class="main-section">
+	<h1>Welcome to uTravel!</h1>
+	<div class="sub-section">
+		<button><a href="/login">Login</a></button> <br />
+		<button><a href="/register">Register</a></button>
 	</div>
 
 </div>
