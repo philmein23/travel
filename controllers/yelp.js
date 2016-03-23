@@ -15,21 +15,30 @@ router.get("/", function(req, res) {
     token_secret: process.env.TOKEN_SECRET,
   });
 
-  console.log("SEARCH",req)
-  var search = JSON.parse(req.query.q);
-  var ll = search.latitude + "," + search.longitude;
-  yelp.search({term: search.term, location: search.location, cl:ll})
-  .then(function (data) {
-
-    // console.log(data);
-    res.send(data);
-    // console.log(req);
-  })
-  .catch(function (err) {
-    console.error(err);
+  var search = req.query.q;
+  var asyncArray = [];
+  var results = [];
+  var parsedSearch = search.map(function(ele) {
+    return JSON.parse(ele);
   });
-  // res.send("testing");
 
+var yelpSearchFn = function(data, callback){
+  yelp.search({term: data.term, location: data.location, cl:data.latitude + "," + data.longitude})
+      .then(function (data) {
+        callback(null, data);
+      })
+      .catch(function (err) {
+        console.error(err);
+      });
+};
+
+
+async.map(parsedSearch, yelpSearchFn, function(err, results){
+  var all = [].concat.apply([], results.map(function(i){
+    return i.businesses;
+  }));
+  res.send(all);
+});
 });
 
 module.exports = router;

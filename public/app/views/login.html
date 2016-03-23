@@ -1,19 +1,19 @@
-<div ng-app="travelapp" ng-controller="loginCtrl">
-<form ng-submit="login()">
-  Email: <input type="text" ng-model="email">
-  Password: <input type="text" ng-model="password">
+<div ng-app="travelapp" ng-controller="loginCtrl" class="main-section flexbox">
+  <form ng-submit="login()">
+    Email: <input type="text" ng-model="email">
+    Password: <input type="text" ng-model="password">
 
-  <br><br>
+    <br><br>
 
-  <button>Login</button>
+    <button>Login</button>
   </form>
-  
+
   <h4>New to UTravel? <a href="/register">Register</a></h4>
 
   <br><br>
 
-<!--   <button ng-click="removeUser()">Remove User</button>
- -->
-  <p ng-if="message">Message: <strong>{{ message }}</strong></p>
-  <p ng-if="error">Error: <strong>{{ error }}</strong></p>
+  <!--   <button ng-click="removeUser()">Remove User</button>
+-->
+<p ng-if="message">Message: <strong>{{ message }}</strong></p>
+<p ng-if="error">Error: <strong>{{ error }}</strong></p>
 </div>

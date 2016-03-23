@@ -1,5 +1,11 @@
 angular.module("allInfoNearbyCtrls", [])
 .controller('homeCtrl', ['$scope','travel', 'Authkey', '$http', function($scope, travel, Authkey, $http){
+
+}])
+.controller('profileCtrl', ['$scope','travel', 'Authkey','$location', '$http', function($scope, travel, Authkey, $location, $http){
+  $scope.name = Authkey.getUserName();
+  $scope.location = Authkey.getUserLocation();
+  console.log(Authkey.getUserData());
   $scope.businesses = [];
   $scope.savedRoutes = [];
   $scope.query = {};
@@ -7,9 +13,9 @@ angular.module("allInfoNearbyCtrls", [])
   $scope.LoggedIn = Authkey.getUserId() == "" ? false : true;
   $scope.search = function(){
     $scope.businesses  = [];
-    travel.yelp.query({q: $scope.savedRoutes}, function(list){
-      console.log(list.businesses);
-      $scope.businesses = list.businesses;
+    travel.yelp.query({q: $scope.savedRoutes}, function(businesses){
+      console.log(businesses);
+      $scope.businesses = businesses;
     });
   };
    $scope.getLocation = function() {
@@ -29,13 +35,6 @@ angular.module("allInfoNearbyCtrls", [])
      console.log($scope.savedRoutes);
    };
 }])
-.controller('profileCtrl', ['$scope','travel', 'Authkey','$location', '$http', function($scope, travel, Authkey, $location, $http){
-  $scope.name = Authkey.getUserName();
-  $scope.location = Authkey.getUserLocation();
-  console.log(Authkey.getUserData());
-
-
-}])
 
 .controller('initialCtrl', ['$scope','travel', 'Authkey','$location', '$http', function($scope, travel, Authkey, $location, $http){
   // if(Authkey.getUserData().email == null){
@@ -51,7 +50,7 @@ angular.module("allInfoNearbyCtrls", [])
     Authkey.setUserName(res.user.username);
     Authkey.setAuthKey(res.user.id);
     Authkey.setUserLocation(res.user.location);
-    $scope.message = Authkey.getUserName() + " has successfully registered."
+    $scope.message = Authkey.getUserName() + " has successfully registered.";
     $location.path('/profile');
     } else {
       $scope.message = res.message;
@@ -127,9 +126,9 @@ angular.module("allInfoNearbyCtrls", [])
       });
     }).catch(function(error) {
         $scope.error = error;
-      });;
+      })
     };
 }])
 .controller("waypointsCtrl", [function() {
-  
-}])
+
+}]);

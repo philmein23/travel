@@ -1,0 +1,34 @@
+$top-bar: black;
+$white-color: white;
+
+header {
+  h1 {
+    text-align: center;
+    font-size:3em;
+    color: $white-color;
+
+  }
+  nav {
+    ul {
+      justify-content: center;
+      width: 100%;
+      background-color: $top-bar;
+      height: auto;
+      margin: 0;
+      li {
+        margin: 1% 1% 1% 0;
+        list-style: none;
+        a,a:visited {
+          color: white;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+.main-section {
+  h1 {
+    text-align: center;
+  }
+}

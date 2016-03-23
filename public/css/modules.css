@@ -1,0 +1,21 @@
+header h1 {
+  text-align: center;
+  font-size: 3em;
+  color: white; }
+header nav ul {
+  justify-content: center;
+  width: 100%;
+  background-color: black;
+  height: auto;
+  margin: 0; }
+  header nav ul li {
+    margin: 1% 1% 1% 0;
+    list-style: none; }
+    header nav ul li a, header nav ul li a:visited {
+      color: white;
+      text-decoration: none; }
+
+.main-section h1 {
+  text-align: center; }
+
+/*# sourceMappingURL=modules.css.map */
