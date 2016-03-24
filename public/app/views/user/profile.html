@@ -10,8 +10,8 @@
   </form>
   Query{{query}}
   Saved Routes{{savedRoutes}}
-  <div ng-repeat="business in businesses" >
-    <div class="well" >
+  <div ng-repeat="business in businesses" class="sub-section flexbox" >
+    <div>
       <h1>{{business.name}}</h1>
       <img ng-src="{{business.image_url}}">
     </div>
