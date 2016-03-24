@@ -18,7 +18,10 @@ router.get("/", function(req, res) {
   var search = req.query.q;
   var asyncArray = [];
   var results = [];
-  console.log(search);
+  console.log(req.query)
+  if(typeof(search) === 'string'){
+    search = [search];
+  };
   var parsedSearch = search.map(function(ele) {
     return JSON.parse(ele);
   });
