@@ -3,7 +3,7 @@ angular.module('travelServices', ['ngResource'])
 	var ref = new Firebase("https://shining-torch-3315.firebaseio.com/");
   return { auth: $firebaseAuth(ref),
   		     yelp: $resource("/yelp" , {}, {
-  			         query: { method: 'GET', isArray: true }
+  			         querys: { method: 'GET', isArray: true }
   			   }),
            initial: $resource("/api/user/create"),
            authenticate: $resource("/api/user/auth")

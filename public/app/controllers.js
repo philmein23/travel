@@ -13,7 +13,7 @@ angular.module("allInfoNearbyCtrls", [])
   $scope.LoggedIn = Authkey.getUserId() == "" ? false : true;
   $scope.search = function(){
     $scope.businesses  = [];
-    travel.yelp.query({q: $scope.savedRoutes}, function(businesses){
+    travel.yelp.querys({q: $scope.savedRoutes}, function(businesses){
       console.log(businesses);
       $scope.businesses = businesses;
     });
