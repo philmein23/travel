@@ -3,8 +3,8 @@ var app = express();
 var path = require("path");
 var bodyParser = require("body-parser");
 var ejsLayout = require("express-ejs-layouts");
-var api = require("./controllers/api");
-var yelp = require("./controllers/yelp");
+var api = require(__dirname + "/routes/api_router");
+var yelp = require(__dirname + "/routes/yelp_router");
 var mongoose = require('mongoose');
 
 app.use(bodyParser.urlencoded({extended:false}));
